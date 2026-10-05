@@ -107,3 +107,17 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+
+# ==== Lab-specific additions ====
+# Unity build output artifacts (generated during Android builds)
+imr-lab1.apk
+imr-lab1_*.apk
+*BackUpThisFolder_ButDontShipItWithYourGame*
+*BurstDebugInformation_DoNotShip*
+# Vuforia generated configuration folder
+QCAR/
+# Batch-mode verification outputs
+SmokeTestResult.txt
+AssetFixResult.txt
+# Unity Log capture folder
+Logs/

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AR Markers - print at 100% scale</title>
+<style>
+  @page { size: A4 landscape; margin: 8mm; }
+  @media print { .no-print { display: none !important; } body { margin: 0; } }
+  body { font-family: Arial, sans-serif; margin: 16px; color: #111; background: #fff; }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  .sub { font-size: 13px; color: #444; margin-bottom: 12px; }
+  .warn { background: #fff3cd; border: 2px solid #d4a017; padding: 8px 12px; border-radius: 6px;
+          font-size: 14px; margin-bottom: 14px; }
+  .no-print { background: #e8f2ff; border: 1px solid #9cc3e5; padding: 10px 12px; border-radius: 6px;
+              font-size: 14px; margin-bottom: 14px; }
+  .row { display: flex; gap: 14mm; justify-content: center; }
+  .card { text-align: center; }
+  .card .imgwrap { width: 100mm; height: 100mm; border: 1px dashed #999; margin: 0 auto; }
+  .card img { width: 100mm; height: 100mm; display: block; object-fit: contain; }
+  .ruler { width: 100mm; height: 6mm; margin: 2mm auto 0; border: 1px solid #000;
+           border-top: none; position: relative; }
+  .ruler .lbl { position: absolute; width: 100%; text-align: center; top: -1mm;
+                font-size: 11px; letter-spacing: 1px; }
+  .tickL, .tickR { position: absolute; top: 0; width: 1px; height: 4mm; background: #000; }
+  .tickL { left: 0; } .tickR { right: 0; }
+  .card p { font-size: 15px; font-weight: bold; margin: 3mm 0 0; }
+  .rules { margin-top: 6mm; font-size: 13px; line-height: 1.55; }
+  .rules b { color: #000; }
+</style>
+</head>
+<body>
+  <h1>IMR Lab 1 - AR Markers</h1>
+  <div class="sub">Each marker must measure exactly 10 cm wide. The black bar under each image is exactly 100 mm &mdash; measure it with a ruler after printing!</div>
+  <div class="warn">&#9888; Print at <b>100% scale</b> / "Actual size" &mdash; do NOT use "Fit to page". If the bar is not exactly 10 cm, characters will misbehave (too far apart / wrong distances).</div>
+  <div class="no-print"><b>How to play:</b> print &rarr; cut the two cards &rarr; point the phone at both cards (flat, 30-50 cm away) &rarr; characters appear on the markers &rarr; slide the cards closer than <b>25 cm</b> apart &rarr; ATTACK mode (whoosh + sparks + HUD distance). Use the <b>Model</b> button (bottom-left) to switch Cacti &rarr; Unity-chan &rarr; Mixed.</div>
+  <div class="row">
+    <div class="card">
+      <div class="imgwrap"><img src="Markers/export-carton-box-494777482.jpg" alt="Marker A"></div>
+      <div class="ruler"><span class="lbl">100 mm calibration - must measure 10 cm</span><span class="tickL"></span><span class="tickR"></span></div>
+      <p>MARKER A &mdash; Character 1</p>
+    </div>
+    <div class="card">
+      <div class="imgwrap"><img src="Markers/target_PNG66-22885455.jpeg" alt="Marker B"></div>
+      <div class="ruler"><span class="lbl">100 mm calibration - must measure 10 cm</span><span class="tickL"></span><span class="tickR"></span></div>
+      <p>MARKER B &mdash; Character 2</p>
+    </div>
+  </div>
+  <div class="rules">
+    <b>Tracking rules:</b> markers flat (no folds/curls) &bull; fully visible, not blocked by fingers &bull; good light, no glare &bull;
+    30&ndash;50 cm from phone &bull; move slowly &bull; the character stands on the CENTER of the printed picture (Vuforia tracks the image, not the paper edges)
+  </div>
+</body>
+</html>
