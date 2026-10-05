@@ -101,7 +101,7 @@ Packages/packages-lock.json linguist-generated
 *.avi                   lfs
 *.flv                   lfs
 *.mov                   lfs
-*.mp4                   lfs
+
 *.mpeg                  lfs
 *.mpg                   lfs
 *.ogv                   lfs
