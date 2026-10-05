@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 // Self-contained impact puff: builds and configures its own ParticleSystem in
 // Awake, sizes it for the AR scene (meters), plays once, then destroys itself.
@@ -7,6 +7,7 @@ public class ImpactVFX : MonoBehaviour
     [Header("Tuning (meters)")]
     [SerializeField] private float duration = 0.9f;
     [SerializeField] private float particleSize = 0.07f;
+    [SerializeField] private float startSpeed = 1.1f;
 
     private ParticleSystem particles;
 
@@ -22,15 +23,16 @@ public class ImpactVFX : MonoBehaviour
         particles.Play();
     }
 
-    private static void Configure(ParticleSystem ps)
+    private void Configure(ParticleSystem ps)
     {
         var main = ps.main;
         main.loop = false;
         main.playOnAwake = false;
-        main.duration = 0.9f;
+        main.duration = duration;
         main.startLifetime = new ParticleSystem.MinMaxCurve(0.45f, 0.75f);
-        main.startSpeed = 1.1f; // matches particleSize scale; exposed via header if needed
-        main.startSize = new ParticleSystem.MinMaxCurve(0.05f, 0.09f);
+        main.startSpeed = startSpeed;
+        float halfSize = particleSize * 0.5f;
+        main.startSize = new ParticleSystem.MinMaxCurve(particleSize - halfSize, particleSize + halfSize);
         main.startColor = new Color(1f, 0.6f, 0.15f, 1f);
         main.gravityModifier = 0f;
         main.simulationSpace = ParticleSystemSimulationSpace.World;
